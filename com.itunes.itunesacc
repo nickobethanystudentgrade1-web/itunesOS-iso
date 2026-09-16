@@ -1,0 +1,17 @@
+{
+
+  "account_service": "iTunes Account",
+
+  "account_id": "",
+
+  "email": "",
+
+  "display_name": "",
+
+  "signed_in": false,
+
+  "devices": [],
+
+  "store_enabled": true
+
+}

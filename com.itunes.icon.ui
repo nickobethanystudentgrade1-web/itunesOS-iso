@@ -1,0 +1,67 @@
+#!/bin/sh
+
+BASE="$HOME/.itunes-os"
+
+DIR="$BASE/system-icons"
+
+mkdir -p "$DIR"
+
+create_icon() {
+
+    ID="$1"
+
+    NAME="$2"
+
+    mkdir -p "$DIR/$ID"
+
+    cat > "$DIR/$ID/icon.conf" <<EOF
+
+ID=$ID
+
+NAME=$NAME
+
+SYSTEM_APP=true
+
+LAUNCHER_VISIBLE=false
+
+SETTINGS_VISIBLE=true
+
+EOF
+
+}
+
+create_icon "system-ui" "System UI"
+
+create_icon "window-manager" "Window Manager"
+
+create_icon "notification-service" "Notification Service"
+
+create_icon "account-service" "iTunes Account Service"
+
+create_icon "store-service" "iTunes OS Store Service"
+
+create_icon "package-installer" "Package Installer"
+
+create_icon "media-service" "Media Service"
+
+create_icon "audio-service" "Audio Service"
+
+create_icon "wifi-service" "Wi-Fi Service"
+
+create_icon "bluetooth-service" "Bluetooth Service"
+
+create_icon "storage-service" "Storage Service"
+
+create_icon "permission-manager" "Permission Manager"
+
+create_icon "software-update" "Software Update"
+
+create_icon "system-recovery" "System Recovery"
+
+create_icon "sim-card" "SIM Card Service"
+
+create_icon "sd-card" "SD Card Service"
+
+create_icon "card-reader" "External Card Reader"
+
+echo "iTunes OS hidden system components registered."

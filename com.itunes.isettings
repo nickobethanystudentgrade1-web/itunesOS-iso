@@ -1,0 +1,226 @@
+#!/bin/sh
+
+# ==========================================
+# iTunes OS — Settings
+# Version 1.0–19.2
+# ==========================================
+
+CONFIG="$HOME/.itunes-os"
+mkdir -p "$CONFIG"
+
+show_header() {
+    clear
+    echo "=========================================="
+    echo "             iTunes OS Settings"
+    echo "=========================================="
+    echo
+}
+
+pause_screen() {
+    echo
+    printf "Press Enter to continue..."
+    read _
+}
+
+account() {
+    show_header
+    echo "APPLE-STYLE ACCOUNT"
+    echo
+    echo "1. Sign In"
+    echo "2. Create iTunes Account"
+    echo "3. Account Profile"
+    echo "4. Devices"
+    echo "5. Purchases"
+    echo "6. Back"
+    echo
+
+    printf "Select: "
+    read choice
+
+    case "$choice" in
+        1)
+            echo
+            printf "Email: "
+            read email
+            printf "Password: "
+            read password
+            echo
+            echo "Account sign-in request created."
+            ;;
+        2)
+            echo
+            printf "Name: "
+            read name
+            printf "Email: "
+            read new_email
+            echo
+            echo "Account creation request created for $name."
+            ;;
+        3) echo "Opening account profile..." ;;
+        4) echo "Opening registered devices..." ;;
+        5) echo "Opening purchases..." ;;
+        6) return ;;
+        *) echo "Invalid selection." ;;
+    esac
+
+    pause_screen
+}
+
+network() {
+    show_header
+    echo "NETWORK"
+    echo
+    echo "1. Wi-Fi"
+    echo "2. Ethernet"
+    echo "3. Bluetooth"
+    echo "4. Back"
+    echo
+
+    printf "Select: "
+    read choice
+
+    case "$choice" in
+        1) echo "Opening Wi-Fi settings..." ;;
+        2) echo "Opening Ethernet settings..." ;;
+        3) echo "Opening Bluetooth settings..." ;;
+        4) return ;;
+        *) echo "Invalid selection." ;;
+    esac
+
+    pause_screen
+}
+
+personalization() {
+    show_header
+    echo "PERSONALIZATION"
+    echo
+    echo "1. Wallpaper"
+    echo "2. Appearance"
+    echo "3. Icons"
+    echo "4. Theme"
+    echo "5. Back"
+    echo
+
+    printf "Select: "
+    read choice
+
+    case "$choice" in
+        1) echo "Wallpaper settings..." ;;
+        2) echo "Light / Dark appearance..." ;;
+        3) echo "Icon settings..." ;;
+        4) echo "Theme settings..." ;;
+        5) return ;;
+        *) echo "Invalid selection." ;;
+    esac
+
+    pause_screen
+}
+
+system_settings() {
+    show_header
+    echo "SYSTEM"
+    echo
+    echo "1. OS Version"
+    echo "2. Software Update"
+    echo "3. Recovery"
+    echo "4. Reset iTunes OS"
+    echo "5. Back"
+    echo
+
+    printf "Select: "
+    read choice
+
+    case "$choice" in
+        1)
+            echo
+            echo "iTunes OS 1.0–19.2"
+            ;;
+        2)
+            echo "Checking for updates..."
+            ;;
+        3)
+            echo "Opening recovery..."
+            ;;
+        4)
+            echo "Reset option selected."
+            ;;
+        5) return ;;
+        *) echo "Invalid selection." ;;
+    esac
+
+    pause_screen
+}
+
+main_menu() {
+    while true; do
+        show_header
+
+        echo "1. iTunes Account"
+        echo "2. Network"
+        echo "3. Personalization"
+        echo "4. Notifications"
+        echo "5. Sound"
+        echo "6. Display"
+        echo "7. Privacy & Security"
+        echo "8. Storage"
+        echo "9. Users"
+        echo "10. System"
+        echo "11. About"
+        echo "12. Quit"
+        echo
+
+        printf "Select: "
+        read choice
+
+        case "$choice" in
+            1) account ;;
+            2) network ;;
+            3) personalization ;;
+            4)
+                echo "Notification settings..."
+                pause_screen
+                ;;
+            5)
+                echo "Sound settings..."
+                pause_screen
+                ;;
+            6)
+                echo "Display settings..."
+                pause_screen
+                ;;
+            7)
+                echo "Privacy & Security settings..."
+                pause_screen
+                ;;
+            8)
+                echo "Storage information..."
+                pause_screen
+                ;;
+            9)
+                echo "User management..."
+                pause_screen
+                ;;
+            10) system_settings ;;
+            11)
+                show_header
+                echo "iTunes OS"
+                echo "Version 1.0–19.2"
+                echo "System Settings"
+                pause_screen
+                ;;
+            12)
+                clear
+                echo "Closing Settings..."
+                exit 0
+                ;;
+            *)
+                echo "Invalid selection."
+                pause_screen
+                ;;
+        esac
+    done
+}
+
+
+
+main_menu

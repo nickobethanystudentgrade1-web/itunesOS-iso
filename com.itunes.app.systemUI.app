@@ -1,0 +1,1 @@
+itunes-store publish ./MyApp.itapp

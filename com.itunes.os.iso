@@ -1,0 +1,29 @@
+#!/system/bin/sh
+
+set -eu
+
+BASE="${HOME:-/sdcard}/iTunes_System_UI_1.0-19.2"
+
+mkdir -p "$BASE/icons" "$BASE/config"
+
+cat > "$BASE/config/theme.json" <<'JSON'
+
+{
+
+  "name": "iTunes System UI",
+
+  "target_versions": ["1.0-19.2"],
+
+  "platform": "Android",
+
+  "mode": "user-theme-assets",
+
+  "official_apple_software": false
+
+}
+
+JSON
+
+echo "iTunes System UI 1.0-19.2 installed."
+
+echo "Assets: $BASE"

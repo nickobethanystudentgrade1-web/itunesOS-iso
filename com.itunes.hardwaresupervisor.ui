@@ -1,0 +1,33 @@
+Settings
+
+└── Hardware
+
+    ├── SD Card
+
+    │   ├── Storage
+
+    │   ├── Mount
+
+    │   ├── Eject
+
+    │   └── Format
+
+    │
+
+    ├── SIM Cards
+
+    │   ├── SIM 1
+
+    │   ├── SIM 2
+
+    │   └── Network Status
+
+    │
+
+    └── External Card Readers
+
+        ├── USB Reader
+
+        ├── SD Card
+
+        └── microSD Card

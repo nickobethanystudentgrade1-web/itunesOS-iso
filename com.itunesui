@@ -1,0 +1,45 @@
+iTunes OS/
+
+├── System UI
+
+├── Settings
+
+├── iTunes Account
+
+├── iTunes OS Store
+
+│
+
+├── Apps/
+
+│   ├── iTunes Music
+
+│   ├── iTube
+
+│   └── Terminal
+
+│
+
+├── System/
+
+│   ├── Kernel
+
+│   ├── Drivers
+
+│   ├── Window Manager
+
+│   ├── File System
+
+│   ├── Networking
+
+│   └── Security
+
+│
+
+└── Developer/
+
+    ├── SDK
+
+    ├── App Builder
+
+    └── Package Manager

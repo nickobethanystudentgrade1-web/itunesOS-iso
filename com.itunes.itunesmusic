@@ -1,0 +1,71 @@
+#!/bin/sh
+
+APP="iTunes Music"
+
+echo "================================"
+
+echo "        $APP"
+
+echo "================================"
+
+echo
+
+echo "1. Library"
+
+echo "2. Playlists"
+
+echo "3. Artists"
+
+echo "4. Albums"
+
+echo "5. Now Playing"
+
+echo "6. Search"
+
+echo "7. Quit"
+
+echo
+
+while true; do
+
+    printf "iTunes Music> "
+
+    read choice
+
+    case "$choice" in
+
+        1) echo "Opening Music Library..." ;;
+
+        2) echo "Opening Playlists..." ;;
+
+        3) echo "Opening Artists..." ;;
+
+        4) echo "Opening Albums..." ;;
+
+        5) echo "Opening Now Playing..." ;;
+
+        6)
+
+            printf "Search: "
+
+            read query
+
+            echo "Searching for: $query"
+
+            ;;
+
+        7)
+
+            exit 0
+
+            ;;
+
+        *)
+
+            echo "Unknown option."
+
+            ;;
+
+    esac
+
+done

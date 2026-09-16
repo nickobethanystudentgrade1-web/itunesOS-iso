@@ -1,0 +1,31 @@
+{
+  "theme": "iTunes System UI",
+  "version_range": "1.0-19.2",
+  "platforms": [
+    "Android",
+    "macOS",
+    "Windows 11"
+  ],
+  "icon_categories": [
+    "iTunes",
+    "Music",
+    "Podcasts",
+    "TV",
+    "Books",
+    "Settings",
+    "Search",
+    "Share",
+    "Play",
+    "Pause",
+    "Stop",
+    "Next",
+    "Previous",
+    "Library",
+    "Playlist",
+    "File",
+    "Folder",
+    "Sync",
+    "AirPlay",
+    "Equalizer"
+  ]
+}

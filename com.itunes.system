@@ -1,0 +1,51 @@
+iTunes OS Settings
+
+└── Apps
+
+    └── System Apps
+
+        ├── System UI
+
+        ├── System Settings
+
+        ├── Window Manager
+
+        ├── Notification Service
+
+        ├── Account Service
+
+        ├── Store Service
+
+        ├── Software Update
+
+        ├── Package Installer
+
+        ├── Permission Manager
+
+        ├── File Provider
+
+        ├── Media Service
+
+        ├── Audio Service
+
+        ├── Bluetooth Service
+
+        ├── Wi-Fi Service
+
+        ├── Network Service
+
+        ├── Display Service
+
+        ├── Input Service
+
+        ├── Storage Service
+
+        ├── Backup Service
+
+        ├── Search Service
+
+        ├── Security Service
+
+        ├── Crash Reporter
+
+        └── System Recovery

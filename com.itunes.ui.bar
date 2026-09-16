@@ -1,0 +1,63 @@
+SystemUI/
+
+├── Shell
+
+│   ├── Home
+
+│   ├── App Launcher
+
+│   ├── Window Manager
+
+│   └── Dock
+
+│
+
+├── System Bar
+
+│   ├── Clock
+
+│   ├── Wi-Fi
+
+│   ├── Bluetooth
+
+│   ├── Battery
+
+│   └── Notifications
+
+│
+
+├── Control Center
+
+│   ├── Wi-Fi
+
+│   ├── Bluetooth
+
+│   ├── Airplane Mode
+
+│   ├── Brightness
+
+│   ├── Volume
+
+│   └── Media Controls
+
+│
+
+├── Settings UI
+
+├── iTunes Account UI
+
+├── App Store UI
+
+├── iTunes UI
+
+├── Files UI
+
+├── Notification Center
+
+├── Search
+
+├── Lock Screen
+
+├── Setup Wizard
+
+└── System Dialogs

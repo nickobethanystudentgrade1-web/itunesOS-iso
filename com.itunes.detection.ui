@@ -1,0 +1,120 @@
+#!/bin/sh
+
+# ==========================================================
+# iTunes OS — SIM / SD / Card Reader System Services
+# Version 1.0–19.2
+#
+# This is a service/configuration prototype.
+# Real hardware support requires OS kernel drivers and APIs.
+# ==========================================================
+
+BASE="$HOME/.itunes-os"
+SERVICE_DIR="$BASE/system-services"
+CONFIG_DIR="$BASE/config"
+
+mkdir -p "$SERVICE_DIR" "$CONFIG_DIR"
+
+# ----------------------------------------------------------
+# SD CARD SERVICE
+# ----------------------------------------------------------
+
+cat > "$SERVICE_DIR/sd-card.conf" <<EOF
+SERVICE_NAME=SD Card Service
+SERVICE_ID=itunes.hardware.sdcard
+ENABLED=true
+AUTO_DETECT=true
+AUTO_MOUNT=true
+SAFE_REMOVE=true
+MOUNT_ROOT=$HOME/ExternalStorage
+EOF
+
+mkdir -p "$HOME/ExternalStorage"
+
+# ----------------------------------------------------------
+# USB / EXTERNAL CARD READER SERVICE
+# ----------------------------------------------------------
+
+cat > "$SERVICE_DIR/card-reader.conf" <<EOF
+SERVICE_NAME=External Card Reader Service
+SERVICE_ID=itunes.hardware.cardreader
+ENABLED=true
+AUTO_DETECT=true
+USB_SUPPORT=true
+SD_SUPPORT=true
+MICROSD_SUPPORT=true
+SAFE_REMOVE=true
+EOF
+
+# ----------------------------------------------------------
+# SIM CARD SERVICE
+# ----------------------------------------------------------
+
+cat > "$SERVICE_DIR/sim-card.conf" <<EOF
+SERVICE_NAME=SIM Card Service
+SERVICE_ID=itunes.hardware.sim
+ENABLED=true
+AUTO_DETECT=true
+SIM_STATUS=true
+NETWORK_STATUS=true
+EOF
+
+# ----------------------------------------------------------
+# HARDWARE MANAGER
+# ----------------------------------------------------------
+
+cat > "$SERVICE_DIR/hardware-manager.conf" <<EOF
+SERVICE_NAME=iTunes OS Hardware Manager
+SERVICE_ID=itunes.hardware.manager
+
+SD_CARD_SERVICE=true
+SIM_CARD_SERVICE=true
+CARD_READER_SERVICE=true
+
+AUTO_DETECT=true
+HOTPLUG=true
+EOF
+
+# ----------------------------------------------------------
+# SETTINGS REGISTRATION
+# ----------------------------------------------------------
+
+cat > "$CONFIG_DIR/hardware-settings.conf" <<EOF
+[Hardware]
+
+SD_Cards=enabled
+SIM_Cards=enabled
+External_Card_Readers=enabled
+
+SD_AutoMount=enabled
+SD_SafeRemoval=enabled
+
+USB_CardReaders=enabled
+HotplugDetection=enabled
+
+SIM_Detection=enabled
+SIM_Status=enabled
+EOF
+
+# ----------------------------------------------------------
+# STATUS
+# ----------------------------------------------------------
+
+echo
+echo "=============================================="
+echo "       iTunes OS Hardware Services"
+echo "=============================================="
+echo
+echo "[✓] SD Card Service"
+echo "[✓] SIM Card Service"
+echo "[✓] External Card Reader Service"
+echo "[✓] USB Card Reader Support"
+echo "[✓] microSD Support"
+echo "[✓] Hotplug Detection"
+echo "[✓] Safe Removal"
+echo
+echo "Services registered successfully."
+echo
+echo "Hardware drivers are required for actual devices."
+
+
+echo

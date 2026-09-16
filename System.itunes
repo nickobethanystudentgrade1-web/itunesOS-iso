@@ -1,0 +1,89 @@
+#!/bin/sh
+
+# ==================================================
+# iTunes OS — Hidden System Apps Manager
+# Version 1.0–19.2
+# ==================================================
+
+SYSTEM_APPS="$HOME/.itunes-os/system-apps"
+mkdir -p "$SYSTEM_APPS"
+
+create_system_app() {
+    ID="$1"
+    NAME="$2"
+    CATEGORY="$3"
+
+    mkdir -p "$SYSTEM_APPS/$ID"
+
+    cat > "$SYSTEM_APPS/$ID/app.conf" <<EOF
+ID=$ID
+NAME=$NAME
+CATEGORY=$CATEGORY
+LAUNCHER_ICON=false
+VISIBLE_IN_APP_DRAWER=false
+VISIBLE_IN_SETTINGS=true
+SYSTEM_APP=true
+EOF
+}
+
+# Core system
+create_system_app "systemui" "System UI" "System"
+create_system_app "settings" "System Settings" "System"
+create_system_app "windowmanager" "Window Manager" "System"
+
+# User interface services
+create_system_app "notifications" "Notification Service" "Interface"
+create_system_app "display" "Display Service" "Interface"
+create_system_app "input" "Input Service" "Interface"
+create_system_app "search" "Search Service" "Interface"
+
+# Account and store
+create_system_app "account" "iTunes Account Service" "Account"
+create_system_app "store" "iTunes OS Store Service" "Store"
+create_system_app "packageinstaller" "Package Installer" "Store"
+
+# Media
+create_system_app "media" "Media Service" "Media"
+create_system_app "audio" "Audio Service" "Media"
+
+# Network
+create_system_app "wifi" "Wi-Fi Service" "Network"
+create_system_app "bluetooth" "Bluetooth Service" "Network"
+create_system_app "network" "Network Service" "Network"
+
+# Storage and files
+create_system_app "storage" "Storage Service" "Storage"
+create_system_app "fileprovider" "File Provider" "Storage"
+create_system_app "backup" "Backup Service" "Storage"
+
+# Security
+create_system_app "permissions" "Permission Manager" "Security"
+create_system_app "security" "Security Service" "Security"
+
+# Maintenance
+create_system_app "update" "Software Update" "Maintenance"
+create_system_app "recovery" "System Recovery" "Maintenance"
+create_system_app "crashreporter" "Crash Reporter" "Maintenance"
+
+echo
+echo "=========================================="
+echo "      iTunes OS System Apps Created"
+echo "=========================================="
+echo
+
+for app in "$SYSTEM_APPS"/*; do
+    if [ -f "$app/app.conf" ]; then
+        NAME=$(grep '^NAME=' "$app/app.conf" | cut -d= -f2-)
+        echo "✓ $NAME"
+    fi
+done
+
+echo
+echo "These applications:"
+echo "  • Have no launcher icon"
+echo "  • Are hidden from the normal app drawer"
+echo "  • Appear under Settings > Apps > System Apps"
+echo "  • Are marked as system applications"
+
+
+echo

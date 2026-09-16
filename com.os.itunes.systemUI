@@ -1,0 +1,53 @@
+iTunes OS
+
+├── System UI
+
+├── Setup Wizard
+
+├── App Store
+
+│   ├── Browse
+
+│   ├── Search
+
+│   ├── Categories
+
+│   ├── App Details
+
+│   ├── Install
+
+│   └── Updates
+
+├── iTunes
+
+│   ├── Music
+
+│   ├── Library
+
+│   ├── Playlists
+
+│   └── Now Playing
+
+├── iTunes OS Store
+
+│   ├── Developer Portal
+
+│   ├── App Upload
+
+│   ├── App Review
+
+│   ├── Publishing
+
+│   └── Updates
+
+└── System Apps
+
+    ├── Settings
+
+    ├── Files
+
+    ├── Browser
+
+    ├── Calculator
+
+    └── System Update

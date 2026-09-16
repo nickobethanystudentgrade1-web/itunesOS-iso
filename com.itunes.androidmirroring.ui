@@ -1,0 +1,25 @@
+#!/system/bin/sh
+
+BASE="${HOME:-/sdcard}/.itunes-os/mirroring"
+
+mkdir -p "$BASE"
+
+cat > "$BASE/mirror.conf" <<EOF
+
+SERVICE=iTunesOS.Mirroring
+
+PLATFORM=Android
+
+DISCOVERY=local-network
+
+PAIRING_REQUIRED=true
+
+USER_APPROVAL_REQUIRED=true
+
+AUTO_START=false
+
+EOF
+
+echo "iTunes OS Android Mirroring configured."
+
+echo "Pairing and user approval are required."

@@ -1,0 +1,29 @@
+#!/bin/zsh
+
+set -eu
+
+BASE="$HOME/Library/Application Support/iTunes-System-UI-1.0-19.2"
+
+mkdir -p "$BASE/icons" "$BASE/config"
+
+cat > "$BASE/config/theme.json" <<'JSON'
+
+{
+
+  "name": "iTunes System UI",
+
+  "target_versions": ["1.0-19.2"],
+
+  "platform": "macOS",
+
+  "mode": "user-theme-assets",
+
+  "official_apple_software": false
+
+}
+
+JSON
+
+echo "iTunes System UI 1.0-19.2 installed."
+
+echo "Assets: $BASE"

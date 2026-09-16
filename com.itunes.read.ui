@@ -1,0 +1,33 @@
+iTunes OS
+
+└── System Hardware
+
+    ├── SIM Card Service
+
+    │   ├── SIM detection
+
+    │   ├── SIM status
+
+    │   └── SIM information
+
+    │
+
+    ├── SD Card Service
+
+    │   ├── SD/microSD detection
+
+    │   ├── Mount/unmount
+
+    │   ├── Storage information
+
+    │   └── Safe removal
+
+    │
+
+    └── Card Reader Service
+
+        ├── USB card reader detection
+
+        ├── Media detection
+
+        └── Mount/unmount

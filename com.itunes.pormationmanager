@@ -1,0 +1,13 @@
+{
+
+  "type": "notification",
+
+  "title": "New Music",
+
+  "message": "Your playlist has been updated.",
+
+  "icon": "music",
+
+  "action": "open://itunes/music"
+
+}
