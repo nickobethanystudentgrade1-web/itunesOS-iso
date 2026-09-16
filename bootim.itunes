@@ -1,0 +1,35 @@
+#!/bin/sh
+set -eu
+OS_NAME="iTunes OS"
+OS_VERSION="1.0-19.2"
+BASE="${ITUNES_OS_ROOT:-/itunes-os}"
+STATE="$BASE/state"
+LOG="$STATE/boot.log"
+mkdir -p "$STATE"
+log(){ printf '[bootim.itunes] %s\n' "$*" | tee -a "$LOG"; }
+fail(){ log "BOOT ERROR: $*"; exit 1; }
+log "Starting $OS_NAME $OS_VERSION"
+for dir in system apps services config users tmp; do mkdir -p "$BASE/$dir"; done
+cat > "$STATE/boot.conf" <<CFG
+OS_NAME=$OS_NAME
+OS_VERSION=$OS_VERSION
+BOOT_SCRIPT=bootim.itunes
+BOOT_STATUS=starting
+CFG
+run_script(){ script="$1"; if [ -f "$script" ]; then log "Running $(basename "$script")"; chmod +x "$script" 2>/dev/null || true; "$script" >>"$LOG" 2>&1 || fail "$(basename "$script") failed"; else log "Skipping missing component: $script"; fi; }
+run_script "$BASE/system/register_hidden_system_icons.sh"
+run_script "$BASE/hardware/hardware-media-services.sh"
+if [ -d "$BASE/mirroring" ]; then log "Mirroring configuration detected; auto-start remains disabled."; fi
+if [ -d "$BASE/apps" ]; then log "Application directory ready."; fi
+cat > "$STATE/boot.conf" <<CFG
+OS_NAME=$OS_NAME
+OS_VERSION=$OS_VERSION
+BOOT_SCRIPT=bootim.itunes
+BOOT_STATUS=ready
+SYSTEM_UI=ready
+MIRRORING_AUTO_START=false
+CFG
+log "System initialization complete."
+if [ -x "$BASE/system/system-ui.sh" ]; then log "Launching System UI..."; exec "$BASE/system/system-ui.sh"; fi
+log "No System UI executable found. Boot completed in development mode."
+exit 0
